@@ -11,3 +11,6 @@ Bài tập 02.2: Flatlist
 Bài tập: Sử dụng State
 
 ![BaitapUseState](https://github.com/user-attachments/assets/10a8860a-9aad-4d04-9156-a46f0c53dcf2)
+
+Bài tập 04: Validate form
+![Validate form](https://github.com/user-attachments/assets/e67b6920-d90a-40f7-bd19-65656f6bf305)
