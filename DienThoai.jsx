@@ -3,7 +3,24 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import React, { useState } from 'react';
 
 export default function App() {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(''); // State để lưu text nhập vào TextInput
+  const [errorMessage, setErrorMessage] = useState(''); // State để lưu thông báo lỗi
+
+  const validatePhoneNumber = (phone) => {
+    // Biểu thức Regex kiểm tra số điện thoại Việt Nam
+    const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
+
+    if (phoneRegex.test(phone)) {
+      setErrorMessage('Số điện thoại hợp lệ!');
+    } else {
+      setErrorMessage('Số điện thoại không hợp lệ!');
+    }
+  };
+
+  const handleTextChange = (text) => {
+    setPhoneNumber(text);
+    validatePhoneNumber(text); // Kiểm tra số điện thoại khi nhập
+  };
 
   return (
     <View style={styles.container}>
@@ -17,9 +34,13 @@ export default function App() {
         placeholder='Nhập số điện thoại của bạn'
         keyboardType='phone-pad' 
         value={phoneNumber}
-        onChangeText={setPhoneNumber}
+        onChangeText={handleTextChange} // Gọi hàm handleTextChange khi nhập văn bản
       />
-      <TouchableOpacity style={[styles.button, phoneNumber ? styles.buttonActive : null]} onPress={() => {}}>
+      {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null} 
+      <TouchableOpacity 
+        style={[styles.button, phoneNumber ? styles.buttonActive : null]} 
+        onPress={() => validatePhoneNumber(phoneNumber)} // Kiểm tra số điện thoại khi click button
+      >
         <Text style={styles.buttonText}>Tiếp tục</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
@@ -31,7 +52,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'left',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     padding: 16,
   },
@@ -39,9 +60,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
-    //textShadowColor: 'rgba(0, 0, 0, 0.75)', // Thêm shadow dưới chữ "Đăng nhập"
-    //textShadowOffset: { width: 0, height: 2 },
-    //textShadowRadius: 3,
   },
   label: {
     fontSize: 18,
@@ -64,8 +82,11 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'lightgray', // Màu nền của nút "Tiếp tục" mờ hơn
     padding: 10,
+  // paddingLeft: 100;
+  paddingHorizontal: 135,
     borderRadius: 5,
     alignItems: 'center',
+    // width: 100
   },
   buttonActive: {
     backgroundColor: 'green', // Màu nền của nút "Tiếp tục" khi điền số điện thoại
@@ -74,4 +95,9 @@ const styles = StyleSheet.create({
     color: '#fff', // Màu chữ button trắng
     fontSize: 16,
   },
+  errorMessage: {
+    color: 'red', // Màu chữ cảnh báo
+    marginBottom: 16,
+  },
+
 });
