@@ -14,3 +14,7 @@ Bài tập: Sử dụng State
 
 Bài tập 04: Validate form
 ![Validate form](https://github.com/user-attachments/assets/e67b6920-d90a-40f7-bd19-65656f6bf305)
+
+Bài tập: Sử dụng stack navigation
+![Screenshot 2025-03-05 143018](https://github.com/user-attachments/assets/503a1617-886b-4f3a-91b2-1b587c19a594)
+![Screenshot 2025-03-05 143045](https://github.com/user-attachments/assets/39a11b79-bf39-472e-b1dd-450711687336)
