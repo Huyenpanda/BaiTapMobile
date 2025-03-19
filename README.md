@@ -18,3 +18,16 @@ Bài tập 04: Validate form
 Bài tập: Sử dụng stack navigation
 ![Screenshot 2025-03-05 143018](https://github.com/user-attachments/assets/503a1617-886b-4f3a-91b2-1b587c19a594)
 ![Screenshot 2025-03-05 143045](https://github.com/user-attachments/assets/39a11b79-bf39-472e-b1dd-450711687336)
+
+Bài tập Context API: Sử dụng Context API hoàn thiện chức năng login
+
+![6aff0a56-1d1f-4047-a876-ea93e0a42f54](https://github.com/user-attachments/assets/08e19ae6-9f9c-471e-a1f1-61bd4cd5a31c)
+
+![aa99abea-8c84-420e-a05c-e82b0e8878b0](https://github.com/user-attachments/assets/77026009-3843-40bf-a075-111f76e222d4)
+
+![8e5ef8fc-14a8-4252-9c4a-98b7dbd91850](https://github.com/user-attachments/assets/d63134d6-fa7f-49a3-a45a-7c8a01c43c50)
+
+
+
+
+
