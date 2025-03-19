@@ -1,77 +1,114 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { AppProvider, AppContext } from './Components/AppContext';
+import { SignInScreen, SignUpScreen, ForgotPasswordScreen } from './AuthScreen';
+import { ExplorerScreen, ProfileScreen } from './MainScreen';
+
+// Auth Stack Navigator
+const AuthStack = createStackNavigator();
+function AuthStackNavigator() {
+  return (
+    <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+      <AuthStack.Screen name="SignIn" component={SignInScreen} />
+      <AuthStack.Screen name="SignUp" component={SignUpScreen} />
+      <AuthStack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+    </AuthStack.Navigator>
+  );
+}
+
+// Main Tab Navigator
+const Tab = createBottomTabNavigator();
+function MainTabNavigator() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          
+          if (route.name === 'Explorer') {
+            iconName = focused ? 'compass' : 'compass-outline';
+          } else if (route.name === 'Account') {
+            iconName = focused ? 'person' : 'person-outline';
+          }
+          
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#f90',
+        tabBarInactiveTintColor: 'gray',
+      })}
+    >
+      <Tab.Screen name="Explorer" component={ExplorerScreen} />
+      <Tab.Screen name="Account" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
+}
+
+// Main Stack Navigator (can contain the tab navigator and other screens)
+const MainStack = createStackNavigator();
+function MainStackNavigator() {
+  return (
+    <MainStack.Navigator screenOptions={{ headerShown: false }}>
+      <MainStack.Screen name="MainTabs" component={MainTabNavigator} />
+      {/* Add other screens that should be accessible after login */}
+    </MainStack.Navigator>
+  );
+}
+
+// App Component with Authentication Flow
+function AppContent() {
+  const { isLoggedIn, setIsLoggedIn } = React.useContext(AppContext);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Check if user is already logged in
+  useEffect(() => {
+    const checkLoginState = async () => {
+      try {
+        const userToken = await AsyncStorage.getItem('userToken');
+        setIsLoggedIn(userToken !== null);
+      } catch (error) {
+        console.log('Error checking login state:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    checkLoginState();
+  }, []);
+  
+  // Show loading screen while checking authentication
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+  
+  return (
+    <NavigationContainer>
+      {isLoggedIn ? <MainStackNavigator /> : <AuthStackNavigator />}
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
-  const [phoneNumber, setPhoneNumber] = useState('');
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Đăng nhập</Text>
-      <Text style={styles.label}>Nhập số điện thoại</Text>
-      <Text style={styles.description}>
-        Dùng số điện thoại để đăng nhập hoặc đăng ký tài khoản tại OneHousing
-      </Text>
-      <TextInput 
-        style={styles.input}
-        placeholder='Nhập số điện thoại của bạn'
-        keyboardType='phone-pad' 
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-      />
-      <TouchableOpacity style={[styles.button, phoneNumber ? styles.buttonActive : null]} onPress={() => {}}>
-        <Text style={styles.buttonText}>Tiếp tục</Text>
-      </TouchableOpacity>
-      <StatusBar style="auto" />
-    </View>
+    <AppProvider>
+      <AppContent />
+    </AppProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  loadingContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'left',
     justifyContent: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    //textShadowColor: 'rgba(0, 0, 0, 0.75)', // Thêm shadow dưới chữ "Đăng nhập"
-    //textShadowOffset: { width: 0, height: 2 },
-    //textShadowRadius: 3,
-  },
-  label: {
-    fontSize: 18,
-    marginBottom: 8,
-  },
-  description: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 16,
-    textAlign: 'left',
-  },
-  input: {
-    height: 40,
-    borderBottomColor: 'gray',
-    borderBottomWidth: 1,
-    width: '100%',
-    paddingHorizontal: 8,
-    marginBottom: 16,
-  },
-  button: {
-    backgroundColor: 'lightgray', // Màu nền của nút "Tiếp tục" mờ hơn
-    padding: 10,
-    borderRadius: 5,
     alignItems: 'center',
-  },
-  buttonActive: {
-    backgroundColor: 'green', // Màu nền của nút "Tiếp tục" khi điền số điện thoại
-  },
-  buttonText: {
-    color: '#fff', // Màu chữ button trắng
-    fontSize: 16,
   },
 });
