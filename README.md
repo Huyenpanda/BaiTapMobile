@@ -27,7 +27,18 @@ Bài tập Context API: Sử dụng Context API hoàn thiện chức năng login
 
 ![8e5ef8fc-14a8-4252-9c4a-98b7dbd91850](https://github.com/user-attachments/assets/d63134d6-fa7f-49a3-a45a-7c8a01c43c50)
 
+Bài tập thực hành (N1): Nectar App
+
+![nectar1](https://github.com/user-attachments/assets/e509e807-675d-4cab-8306-94e46085bb20)
 
 
+![nectar2](https://github.com/user-attachments/assets/0f95ce0b-433a-4c92-9d2f-2954626bd1be)
 
 
+![nectar3](https://github.com/user-attachments/assets/c250562f-a5b2-43a1-8fd3-7e73f3a26424)
+
+
+![nectar4](https://github.com/user-attachments/assets/73ab5429-5751-49f4-ad74-b76a977474e1)
+
+
+![nectar5](https://github.com/user-attachments/assets/cda87c11-e7b3-44b3-a501-757073a6813d)
