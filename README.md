@@ -42,3 +42,13 @@ Bài tập thực hành (N1): Nectar App
 
 
 ![nectar5](https://github.com/user-attachments/assets/cda87c11-e7b3-44b3-a501-757073a6813d)
+
+Bài tập kết hợp Navigation và Context:
+
+![app1](https://github.com/user-attachments/assets/52e94aac-fa36-48f6-a766-4cb289f4ed86)
+
+![app2](https://github.com/user-attachments/assets/1d9f10c4-6be5-4597-a253-7b5d21dcac2a)
+
+![app3](https://github.com/user-attachments/assets/0687329f-3bc4-41e2-a01e-ba31668c38ca)
+
+![app4](https://github.com/user-attachments/assets/760b0bcf-cb8b-4038-a1eb-2f8e34a2f868)
