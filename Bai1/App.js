@@ -1,57 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import { AppProvider, AppContext } from './Components/AppContext';
-import { AuthStackNavigator, MainStackNavigator } from './router';
+// Import screens
+import HomeScreen from './Sceens/HomeScreen';
+import CartScreen from './Sceens/CartScreen';
+import InboxScreen from './Sceens/InboxScreen';
+import ProfileScreen from './Sceens/ProfileScreen';
 
-function AppContent() {
-  const { isLoggedIn, setIsLoggedIn } = React.useContext(AppContext);
-  const [isLoading, setIsLoading] = useState(true);
+const Tab = createBottomTabNavigator();
 
-  useEffect(() => {
-    const checkLoginState = async () => {
-      try {
-        const userToken = await AsyncStorage.getItem('userToken');
-        setIsLoggedIn(userToken !== null);
-      } catch (error) {
-        console.log('Error checking login state:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkLoginState();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
-
+const App = () => {
   return (
-    <NavigationContainer>
-      {isLoggedIn ? <MainStackNavigator /> : <AuthStackNavigator />}
-    </NavigationContainer>
-  );
-}
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
 
-export default function App() {
-  return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
-  );
-}
+              if (route.name === 'HOME') {
+                iconName = focused ? 'home' : 'home-outline';
+              } else if (route.name === 'ORDER') {
+                iconName = focused ? 'cart' : 'cart-outline';
+              } else if (route.name === 'INBOX') {
+                iconName = focused ? 'chatbubble' : 'chatbubble-outline';
+              } else if (route.name === 'PROFILE') {
+                iconName = focused ? 'person' : 'person-outline';
+              }
 
-const styles = StyleSheet.create({
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+              return <Icon name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: '#5C5CFF',
+            tabBarInactiveTintColor: 'gray',
+            headerShown: false,
+          })}
+        >
+          <Tab.Screen name="HOME" component={HomeScreen} />
+          <Tab.Screen name="ORDER" component={CartScreen} />
+          <Tab.Screen name="INBOX" component={InboxScreen} />
+          <Tab.Screen name="PROFILE" component={ProfileScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+};
+
+export default App;
