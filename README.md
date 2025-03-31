@@ -52,3 +52,12 @@ Bài tập kết hợp Navigation và Context:
 ![app3](https://github.com/user-attachments/assets/0687329f-3bc4-41e2-a01e-ba31668c38ca)
 
 ![app4](https://github.com/user-attachments/assets/760b0bcf-cb8b-4038-a1eb-2f8e34a2f868)
+
+Thực hành 31/03/2025 (N1): Restaurant App - P1 - Navigation
+
+![app1](https://github.com/user-attachments/assets/75d7f36d-a97a-4fe7-95d4-7257e64ed31c)
+
+![app2](https://github.com/user-attachments/assets/6ef1d38a-b26f-40bd-8d9f-136c80391d6d)
+
+
+![app3](https://github.com/user-attachments/assets/1071956f-f789-42eb-ac0f-a1b2860cdc9c)
