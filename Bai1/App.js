@@ -1,50 +1,23 @@
-import React, { useState } from 'react';
+// App.js
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Import screens
-import HomeScreen from './Sceens/HomeScreen';
-import CartScreen from './Sceens/CartScreen';
-import InboxScreen from './Sceens/InboxScreen';
-import ProfileScreen from './Sceens/ProfileScreen';
+import LoginScreen from './screens/signInScreen';
+import SignUpScreen from './screens/signupScreen';
+import SelectLocationScreen from './screens/locationScreen';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-              let iconName;
-
-              if (route.name === 'HOME') {
-                iconName = focused ? 'home' : 'home-outline';
-              } else if (route.name === 'ORDER') {
-                iconName = focused ? 'cart' : 'cart-outline';
-              } else if (route.name === 'INBOX') {
-                iconName = focused ? 'chatbubble' : 'chatbubble-outline';
-              } else if (route.name === 'PROFILE') {
-                iconName = focused ? 'person' : 'person-outline';
-              }
-
-              return <Icon name={iconName} size={size} color={color} />;
-            },
-            tabBarActiveTintColor: '#5C5CFF',
-            tabBarInactiveTintColor: 'gray',
-            headerShown: false,
-          })}
-        >
-          <Tab.Screen name="HOME" component={HomeScreen} />
-          <Tab.Screen name="ORDER" component={CartScreen} />
-          <Tab.Screen name="INBOX" component={InboxScreen} />
-          <Tab.Screen name="PROFILE" component={ProfileScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen name="SelectLocation" component={SelectLocationScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
