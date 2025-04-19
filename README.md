@@ -61,3 +61,14 @@ Thực hành 31/03/2025 (N1): Restaurant App - P1 - Navigation
 
 
 ![app3](https://github.com/user-attachments/assets/1071956f-f789-42eb-ac0f-a1b2860cdc9c)
+
+Thực hành 19/04/2025 (N1+N2): Nectar App - P2 - Login/Signup
+
+![z6520613085779_09db9fe81546b99f3ea595a08c05b1f1](https://github.com/user-attachments/assets/1e369a8e-495d-4ab2-92f8-d41fa5fcef47)
+
+![z6520613918394_980666e12b7f50e1c1ad914336d6dfc8](https://github.com/user-attachments/assets/0da1afd5-fa0c-4e89-ad92-1e23359a68a7)
+
+![z6520614120023_9cb65d2bdfd0b6bea90590ffbd4d3822](https://github.com/user-attachments/assets/13a53fdc-396d-49bf-b9b1-4876fa932288)
+
+
+
