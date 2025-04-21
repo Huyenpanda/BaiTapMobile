@@ -70,5 +70,19 @@ Thực hành 19/04/2025 (N1+N2): Nectar App - P2 - Login/Signup
 
 ![z6520614120023_9cb65d2bdfd0b6bea90590ffbd4d3822](https://github.com/user-attachments/assets/13a53fdc-396d-49bf-b9b1-4876fa932288)
 
+Thực hành 21/04/2025: Nectar App - P3 - Home/ProductListing
+
+![nectarapp1](https://github.com/user-attachments/assets/a3a3ea63-cdad-4f40-98dd-85f1df8fdf0e)
+
+![nectarapp2](https://github.com/user-attachments/assets/4e791a22-99aa-4fb4-bc57-5d0330ad23a1)
+
+![nectarapp3](https://github.com/user-attachments/assets/636c0b90-9798-4a19-80a9-47b2a7f0a875)
+
+![nectarapp4](https://github.com/user-attachments/assets/2105cf79-d8f8-4f84-ba0b-de82a80eb251)
+
+
+
+
+
 
 
