@@ -15,49 +15,49 @@ const products = [
     name: 'Diet Coke',
     volume: '355ml',
     price: '$1.99',
-    image: 'https://i.imgur.com/JJvJ7Yd.png',
+    image: require('../assets/appleImage.png'),
   },
   {
     id: '2',
     name: 'Sprite Can',
     volume: '325ml',
     price: '$1.50',
-    image: 'https://i.imgur.com/6M513yP.png',
+    image: require('../assets/appleImage.png'),
   },
   {
     id: '3',
     name: 'Apple & Grape Juice',
     volume: '2L',
     price: '$15.99',
-    image: 'https://i.imgur.com/KX0J2Kg.png',
+    image: require('../assets/appleImage.png'),
   },
   {
     id: '4',
     name: 'Orange Juice',
     volume: '2L',
     price: '$15.99',
-    image: 'https://i.imgur.com/rQwPbDM.png',
+    image: require('../assets/appleImage.png'),
   },
   {
     id: '5',
     name: 'Coca Cola Can',
     volume: '325ml',
     price: '$4.99',
-    image: 'https://i.imgur.com/UO1kO4L.png',
+    image: require('../assets/appleImage.png'),
   },
   {
     id: '6',
     name: 'Pepsi Can',
     volume: '330ml',
     price: '$4.99',
-    image: 'https://i.imgur.com/VO1sZHo.png',
+    image: require('../assets/appleImage.png'),
   },
 ];
 
 export default function BeverageList() {
   const renderItem = ({ item }) => (
     <View style={styles.card}>
-      <Image source={{ uri: item.image }} style={styles.image} />
+      <Image source={item.image} style={styles.image} />
       <Text style={styles.name}>{item.name}</Text>
       <Text style={styles.volume}>{item.volume}, Price</Text>
       <View style={styles.bottomRow}>
@@ -71,7 +71,9 @@ export default function BeverageList() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Beverages</Text>
+      <View style={styles.headerText}>
+        <Text style={styles.header}>Beverages</Text>
+      </View>
       <FlatList
         data={products}
         renderItem={renderItem}
@@ -94,6 +96,10 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     marginBottom: 16,
+    marginTop: 30,
+  },
+  headerText: {
+    alignItems: 'center',
   },
   card: {
     backgroundColor: '#f9f9f9',
@@ -127,7 +133,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   addButton: {
-    backgroundColor: '#34c759',
+    backgroundColor: '#53B175', // Changed to match the green color from the grocery app
     width: 30,
     height: 30,
     borderRadius: 15,

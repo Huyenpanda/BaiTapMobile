@@ -32,9 +32,12 @@ const HomeScreen = () => {
     <ScrollView style={styles.container}>
       {/* Header */}
    <TouchableOpacity style={styles.header} onPress={() => navigation.navigate('Beverage')}>
+   <Text style={styles.logo}>🥕</Text>
+  <View style ={styles.location}>
   <Ionicons name="location-outline" size={18} color="#000" />
   <Text style={styles.locationText}>Dhaka, Banassre</Text>
-  <Ionicons name="cart-outline" size={24} color="#000" />
+  </View>
+  
 </TouchableOpacity>
 
 
@@ -107,10 +110,13 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
   header: {
     marginTop: 50,
-    flexDirection: 'row',
+    flexDirection: 'collumn',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20
+  },
+  location: {
+    flexDirection: 'row',
   },
   locationText: {
     fontSize: 16,

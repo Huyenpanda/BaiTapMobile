@@ -44,8 +44,12 @@ const ExploreScreen = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+      <Text style={styles.headerText}>Find Products</Text>
+
+      </View>
       <TouchableOpacity style={styles.searchBar}>
-        <Text style={styles.searchText}>Find Products</Text>
+        <Text style={styles.searchText}>Search Store</Text>
       </TouchableOpacity>
       <FlatList
         data={categories}
@@ -66,6 +70,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 20,
   },
+  header:
+  {
+    alignItems:'center'
+  },
+  headerText: { color: '#000', fontWeight:500 , fontSize: 20,marginTop:30, marginBottom:20 },
+  
   searchText: { color: '#888' },
   categoryList: { justifyContent: 'space-between' },
   categoryContainer: {

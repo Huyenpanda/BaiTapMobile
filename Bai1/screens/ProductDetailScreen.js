@@ -6,10 +6,11 @@ const ProductDetailScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={{ uri: 'https://i5.walmartimages.com/seo/Fresh-Red-Delicious-Apple-Each_7320e63a-de46-4a16-9b8c-526e15219a12_3.e557c1ad9973e1f76f512b34950243a3.jpeg' }}
-        style={styles.productImage}
-      />
+     
+       <Image
+          source={require('../assets/AppleImage2.png')}
+          style={styles.productImage}
+        />
     
       <Text style={styles.productName}>Natural Red Apple</Text>
       <Text style={styles.productWeight}>1kg, Price</Text>
@@ -23,9 +24,7 @@ const ProductDetailScreen = () => {
         </TouchableOpacity>
         <Text style={styles.price}>${(4.99 * quantity).toFixed(2)}</Text>
       </View>
-      <TouchableOpacity style={styles.addToBasket}>
-        <Text style={styles.addToBasketText}>Add To Basket</Text>
-      </TouchableOpacity>
+      
       <Text style={styles.sectionTitle}>Product Detail</Text>
       <Text style={styles.sectionContent}>
         Apples are nutritious. They are rich in fiber and antioxidants and are great for a healthy diet.
@@ -34,6 +33,9 @@ const ProductDetailScreen = () => {
       <Text style={styles.sectionContent}>Calories: 95 • Carbs: 25g • Fiber: 4g • Vitamin C: 14%</Text>
       <Text style={styles.sectionTitle}>Review</Text>
       <Text style={styles.sectionContent}>★★★★★</Text>
+      <TouchableOpacity style={styles.addToBasket}>
+        <Text style={styles.addToBasketText}>Add To Basket</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
   addToBasket: { backgroundColor: '#53B175', padding: 15, borderRadius: 10, alignItems: 'center' },
   addToBasketText: { color: '#fff', fontSize: 16 },
   sectionTitle: { fontSize: 16, fontWeight: 'bold', marginTop: 20 },
-  sectionContent: { fontSize: 14, color: '#888', marginTop: 5 },
+  sectionContent: { fontSize: 14, color: '#888', marginTop: 5, marginBottom:30 },
 });
 
 export default ProductDetailScreen;
