@@ -66,9 +66,9 @@ const SignUpScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { padding: 20, flex: 1, justifyContent: 'center' },
-  logo: { fontSize: 100, textAlign: 'center', marginBottom: 80 },
-  title: { fontSize: 24, fontWeight: 'bold', textAlign: 'left', marginBottom: 15 ,  marginLeft: 5},
-  subtitle: { fontSize: 14, color: 'gray', textAlign: 'left', marginBottom: 30 , marginLeft: 5},
+  logo: { fontSize: 40, textAlign: 'center', marginBottom: 30 },
+  title: { fontSize: 24, fontWeight: 'bold', textAlign: 'center' },
+  subtitle: { fontSize: 14, color: 'gray', textAlign: 'center', marginBottom: 30 },
   input: {
     height: 50,
     borderBottomWidth: 1,

@@ -23,9 +23,9 @@ const SelectLocationScreen = () => {
       </TouchableOpacity>
 
       <Image
-    source={require('../assets/illustration.png')} // Hoặc dùng local image
-    style={styles.mapImage}
-/>
+        source={{ uri: 'https://img.icons8.com/color/96/000000/map-marker.png' }}
+        style={styles.mapImage}
+      />
 
       <Text style={styles.title}>Select Your Location</Text>
       <Text style={styles.subtitle}>
@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
   container: { padding: 20, flex: 1 },
   backButton: { marginBottom: 10 },
   backArrow: { fontSize: 24 },
-  mapImage: { width: 150, height: 150, alignSelf: 'center', margin: 50 },
-  title: { fontSize: 22, fontWeight: 'bold', textAlign: 'center', marginBottom: 20},
+  mapImage: { width: 100, height: 100, alignSelf: 'center', marginBottom: 20 },
+  title: { fontSize: 22, fontWeight: 'bold', textAlign: 'center' },
   subtitle: {
     fontSize: 14,
     color: 'gray',
     textAlign: 'center',
-    marginBottom: 50,
+    marginBottom: 30,
     paddingHorizontal: 10,
   },
   label: { fontSize: 14, fontWeight: '500', marginBottom: 5 },
